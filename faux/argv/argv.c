@@ -242,7 +242,7 @@ ssize_t faux_argv_parse(faux_argv_t *fargv, const char *str)
  * @param [in] fargv Allocated fargv object.
  * @return Number of words and substrings or < 0 on error.
  */
-ssize_t faux_argv_len(faux_argv_t *fargv)
+ssize_t faux_argv_len(const faux_argv_t *fargv)
 {
 	assert(fargv);
 	if (!fargv)

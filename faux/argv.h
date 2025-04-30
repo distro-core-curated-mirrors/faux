@@ -18,7 +18,7 @@ faux_argv_t *faux_argv_dup(const faux_argv_t *origin);
 void faux_argv_free(faux_argv_t *fargv);
 void faux_argv_set_quotes(faux_argv_t *fargv, const char *quotes);
 
-ssize_t faux_argv_len(faux_argv_t *fargv);
+ssize_t faux_argv_len(const faux_argv_t *fargv);
 faux_argv_node_t *faux_argv_iter(const faux_argv_t *fargv);
 faux_argv_node_t *faux_argv_iterr(const faux_argv_t *fargv);
 const char *faux_argv_each(faux_argv_node_t **iter);
