@@ -156,3 +156,38 @@ int testc_faux_str_c_esc_quote(void)
 
 	return 0;
 }
+
+
+int testc_faux_str_casecmpn(void)
+{
+	const char *line_long = "abcdefj";
+	const char *line_short = "abcde";
+	const char *line_diff = "abche";
+
+	if (faux_str_casecmpn(line_long, line_short, strlen(line_short)) != 0) {
+		printf("Equal string comparison problem\n");
+		return -1;
+	}
+
+	if (faux_str_casecmpn(line_long, line_short, strlen(line_long)) <= 0) {
+		printf("Sort string comparison problem\n");
+		return -1;
+	}
+
+	if (faux_str_casecmpn(line_long, line_diff, strlen(line_diff)) >= 0) {
+		printf("Different string comparison problem\n");
+		return -1;
+	}
+
+	if (faux_str_casecmpn(line_long, NULL, strlen(line_long)) <= 0) {
+		printf("Broken first string comparison with NULL\n");
+		return -1;
+	}
+
+	if (faux_str_casecmpn(NULL, line_long, strlen(line_long)) >= 0) {
+		printf("Broken second string comparison with NULL\n");
+		return -1;
+	}
+
+	return 0;
+}
