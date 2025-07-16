@@ -393,7 +393,7 @@ int faux_str_casecmpn(const char *str1, const char *str2, size_t n)
 		num--;
 	}
 
-	if (0 == n) // It means n first characters are equal.
+	if (0 == num) // It means n first characters are equal.
 		return 0;
 
 	return faux_str_cmp_chars(
