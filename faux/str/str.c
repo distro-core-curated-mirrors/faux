@@ -356,10 +356,10 @@ int faux_str_cmp(const char *str1, const char *str2)
 	if (!str1 && !str2) // Empty strings are equal
 		return 0;
 
-	if (!str1) // Consider NULL string to be less then empty string
+	if (!str1) // Consider NULL string to be less than empty string
 		return -1;
 
-	if (!str2) // Consider NULL string to be less then empty string
+	if (!str2) // Consider NULL string to be less than empty string
 		return 1;
 
 	return strcmp(str1, str2);
@@ -382,6 +382,15 @@ int faux_str_casecmpn(const char *str1, const char *str2, size_t n)
 	const char *p1 = str1;
 	const char *p2 = str2;
 	size_t num = n;
+
+	if (!p1 && !p2) // Empty strings are equal
+		return 0;
+
+	if (!p1) // Consider NULL string to be less than empty string
+		return -1;
+
+	if (!p2) // Consider NULL string to be less than empty string
+		return 1;
 
 	while (*p1 != '\0' && *p2 != '\0' && num != 0) {
 		int res = faux_str_cmp_chars(
