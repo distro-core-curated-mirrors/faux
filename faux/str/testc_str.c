@@ -161,7 +161,7 @@ int testc_faux_str_c_esc_quote(void)
 int testc_faux_str_casecmpn(void)
 {
 	const char *line_long = "abcdefj";
-	const char *line_short = "abcde";
+	const char *line_short = "aBCde";
 	const char *line_diff = "abche";
 
 	if (faux_str_casecmpn(line_long, line_short, strlen(line_short)) != 0) {
