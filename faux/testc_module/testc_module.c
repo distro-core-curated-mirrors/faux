@@ -13,6 +13,9 @@ const char *testc_module[][2] = {
 	// base
 	{"testc_faux_filesize", "Get size of filesystem object"},
 
+	// conv
+	{"testc_faux_conv_atoull", "String to unsigned long long conversion"},
+
 	// str
 	{"testc_faux_str_nextword", "Find next word (quotation)"},
 	{"testc_faux_str_getline", "Get line from string"},

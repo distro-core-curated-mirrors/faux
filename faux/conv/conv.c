@@ -55,9 +55,15 @@ bool_t faux_conv_atoul(const char *str, unsigned long int *val, int base)
 {
 	char *endptr = NULL;
 	unsigned long int res = 0;
+	const char *begin = str;
+
+	while (*begin == ' ')
+		begin++;
+	if (*begin == '-') // negative number is illegal
+		return BOOL_FALSE;
 
 	errno = 0; // man recommends to do so
-	res = strtoul(str, &endptr, base);
+	res = strtoul(begin, &endptr, base);
 	// Check for overflow
 	if ((ULONG_MAX == res) && (ERANGE == errno))
 		return BOOL_FALSE;
@@ -115,9 +121,15 @@ bool_t faux_conv_atoull(const char *str, unsigned long long int *val, int base)
 {
 	char *endptr = NULL;
 	unsigned long long int res = 0;
+	const char *begin = str;
+
+	while (*begin == ' ')
+		begin++;
+	if (*begin == '-') // negative number is illegal
+		return BOOL_FALSE;
 
 	errno = 0; // man recommends to do so
-	res = strtoull(str, &endptr, base);
+	res = strtoull(begin, &endptr, base);
 	// Check for overflow
 	if ((ULLONG_MAX == res) && (ERANGE == errno))
 		return BOOL_FALSE;
@@ -170,9 +182,15 @@ bool_t faux_conv_atoi(const char *str, int *val, int base)
 bool_t faux_conv_atoui(const char *str, unsigned int *val, int base)
 {
 	unsigned long int tmp = 0;
+	const char *begin = str;
+
+	while (*begin == ' ')
+		begin++;
+	if (*begin == '-') // negative number is illegal
+		return BOOL_FALSE;
 
 	// Use existent func. The long int is longer or equal to int.
-	if (!faux_conv_atoul(str, &tmp, base))
+	if (!faux_conv_atoul(begin, &tmp, base))
 		return BOOL_FALSE;
 	if (tmp > UINT_MAX) // Overflow
 		return BOOL_FALSE;
@@ -221,8 +239,14 @@ bool_t faux_conv_atos(const char *str, short *val, int base)
 bool_t faux_conv_atous(const char *str, unsigned short *val, int base)
 {
 	unsigned long int tmp = 0;
+	const char *begin = str;
 
-	if (!faux_conv_atoul(str, &tmp, base))
+	while (*begin == ' ')
+		begin++;
+	if (*begin == '-') // negative number is illegal
+		return BOOL_FALSE;
+
+	if (!faux_conv_atoul(begin, &tmp, base))
 		return BOOL_FALSE;
 	if (tmp > USHRT_MAX) // Overflow
 		return BOOL_FALSE;
@@ -271,8 +295,14 @@ bool_t faux_conv_atoc(const char *str, char *val, int base)
 bool_t faux_conv_atouc(const char *str, unsigned char *val, int base)
 {
 	unsigned long int tmp = 0;
+	const char *begin = str;
 
-	if (!faux_conv_atoul(str, &tmp, base))
+	while (*begin == ' ')
+		begin++;
+	if (*begin == '-') // negative number is illegal
+		return BOOL_FALSE;
+
+	if (!faux_conv_atoul(begin, &tmp, base))
 		return BOOL_FALSE;
 	if (tmp > UCHAR_MAX) // Overflow
 		return BOOL_FALSE;
