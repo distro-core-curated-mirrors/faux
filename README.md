@@ -34,6 +34,6 @@ Mailing list : http://groups.google.com/group/libfaux.
 
 Download : https://src.libcode.org/download/faux
 
-Latest release : https://src.libcode.org/download/faux/faux-2.2.0.tar.xz
+Latest release : https://src.libcode.org/download/faux/faux-2.2.1.tar.xz
 
 Author: Serj Kalichev `<pkun(_at_)libcode.org>`

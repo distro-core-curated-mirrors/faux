@@ -23,7 +23,8 @@ EXTRA_DIST = \
 	utils/Makefile.am \
 	testc/Makefile.am \
 	LICENCE \
-	README.md
+	README.md \
+	CHANGES.md
 
 include $(top_srcdir)/faux/Makefile.am
 include $(top_srcdir)/utils/Makefile.am
