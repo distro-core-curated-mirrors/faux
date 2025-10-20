@@ -26,6 +26,8 @@ The main target platform for library is a Linux. The project is written in C.
 
 Homepage : http://faux.libcode.org
 
+Changelog : https://src.libcode.org/pkun/faux/src/master/CHANGES.md
+
 Repository : https://src.libcode.org/pkun/faux
 
 Mailing list : http://groups.google.com/group/libfaux.
